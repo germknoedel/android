@@ -10,4 +10,4 @@ jobs:
           command: echo Hello, world.
       - run:
           name: Print the Current Time
-          command: date
+          command: repo init -u git://github.com/germknoedel/android.git -b cm-14.1
