@@ -7,8 +7,15 @@ jobs:
     steps:
       checkout
       run:
-        name: init lineage repo
-        command: repo init -u git://github.com/germknoedel/android.git -b cm-14.1
+        name: install repo tool
+        command: mkdir -p ~/bin;
+                 mkdir -p ~/android/lineage;
+                 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+                 chmod 755 ~/bin/repo
+                 # set PATH so it includes user's private bin if it exists
+                 if [ -d "$HOME/bin" ] ; then
+                   PATH="$HOME/bin:$PATH"
+                 fi
       run:
         name: init lineage repo
-        command: uname -a
+        command: repo init -u git://github.com/germknoedel/android.git -b cm-14.1
