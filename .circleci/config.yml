@@ -5,7 +5,7 @@ jobs:
       enabled: true
       image: circleci/classic:latest
     steps:
-      checkout
+      - checkout
       run:
         name: install repo tool
         command: ~/.installrepo
