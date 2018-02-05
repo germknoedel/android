@@ -2,13 +2,13 @@ version: 2
 jobs:
   build:
     machine: 
-      enabled: true
-      image: circleci/classic:latest
+      - enabled: true
+      - image: circleci/classic:latest
     steps:
-      checkout
+      - checkout
       run:
-        name: install repo tool
-        command: mkdir -p ~/bin;
+        - name: install repo tool
+        - command: mkdir -p ~/bin;
                  mkdir -p ~/android/lineage;
                  curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
                  chmod 755 ~/bin/repo
@@ -17,5 +17,5 @@ jobs:
                    PATH="$HOME/bin:$PATH"
                  fi
       run:
-        name: init lineage repo
-        command: repo init -u git://github.com/germknoedel/android.git -b cm-14.1
+        - name: init lineage repo
+        - command: repo init -u git://github.com/germknoedel/android.git -b cm-14.1
